@@ -4,7 +4,9 @@
 #include <string.h>
 #include <assert.h>
 
+#if __cplusplus >= 201103
 #pragma warning(disable : 4786)
+#endif
 
 #include <vector>
 #include <map>

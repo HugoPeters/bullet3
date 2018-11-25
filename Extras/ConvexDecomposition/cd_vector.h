@@ -36,7 +36,9 @@
 // http://www.amillionpixels.us
 //
 
+#if __cplusplus >= 201103
 #pragma warning(disable : 4786)
+#endif
 
 #include <math.h>
 #include <float.h>

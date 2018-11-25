@@ -125,6 +125,8 @@ public:
 #elif defined(__APPLE__) || defined(__linux__)
 		int result = pthread_mutex_trylock(&m_mutex);
 		return (result == 0);
+#else
+    return true;
 #endif
 	}
 
