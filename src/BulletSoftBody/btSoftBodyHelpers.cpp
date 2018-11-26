@@ -272,15 +272,15 @@ void btSoftBodyHelpers::Draw(btSoftBody* psb,
 			}
 		}
 		/* Links	*/
-		if (0 != (drawflags & fDrawFlags::Links))
-		{
-			for (i = 0; i < psb->m_links.size(); ++i)
-			{
-				const btSoftBody::Link& l = psb->m_links[i];
-				if (0 == (l.m_material->m_flags & btSoftBody::fMaterial::DebugDraw)) continue;
-				idraw->drawLine(l.m_n[0]->m_x, l.m_n[1]->m_x, lcolor);
-			}
-		}
+		//if (0 != (drawflags & fDrawFlags::Links))
+		//{
+		//	for (i = 0; i < psb->m_links.size(); ++i)
+		//	{
+		//		const btSoftBody::Link& l = psb->m_links[i];
+		//		if (0 == (l.m_material->m_flags & btSoftBody::fMaterial::DebugDraw)) continue;
+		//		idraw->drawLine(l.m_n[0]->m_x, l.m_n[1]->m_x, lcolor);
+		//	}
+		//}
 		/* Normals	*/
 		if (0 != (drawflags & fDrawFlags::Normals))
 		{
@@ -294,23 +294,23 @@ void btSoftBodyHelpers::Draw(btSoftBody* psb,
 			}
 		}
 		/* Contacts	*/
-		if (0 != (drawflags & fDrawFlags::Contacts))
-		{
-			static const btVector3 axis[] = {btVector3(1, 0, 0),
-											 btVector3(0, 1, 0),
-											 btVector3(0, 0, 1)};
-			for (i = 0; i < psb->m_rcontacts.size(); ++i)
-			{
-				const btSoftBody::RContact& c = psb->m_rcontacts[i];
-				const btVector3 o = c.m_node->m_x - c.m_cti.m_normal *
-														(btDot(c.m_node->m_x, c.m_cti.m_normal) + c.m_cti.m_offset);
-				const btVector3 x = btCross(c.m_cti.m_normal, axis[c.m_cti.m_normal.minAxis()]).normalized();
-				const btVector3 y = btCross(x, c.m_cti.m_normal).normalized();
-				idraw->drawLine(o - x * nscl, o + x * nscl, ccolor);
-				idraw->drawLine(o - y * nscl, o + y * nscl, ccolor);
-				idraw->drawLine(o, o + c.m_cti.m_normal * nscl * 3, btVector3(1, 1, 0));
-			}
-		}
+        if (0 != (drawflags & fDrawFlags::Contacts))
+        {
+            static const btVector3 axis[] = { btVector3(1, 0, 0),
+                                             btVector3(0, 1, 0),
+                                             btVector3(0, 0, 1) };
+            for (i = 0; i < psb->m_rcontacts.size(); ++i)
+            {
+                const btSoftBody::RContact& c = psb->m_rcontacts[i];
+                const btVector3 o = c.m_node->m_x - c.m_cti.m_normal *
+                    (btDot(c.m_node->m_x, c.m_cti.m_normal) + c.m_cti.m_offset);
+                const btVector3 x = btCross(c.m_cti.m_normal, axis[c.m_cti.m_normal.minAxis()]).normalized();
+                const btVector3 y = btCross(x, c.m_cti.m_normal).normalized();
+                idraw->drawLine(o - x * nscl, o + x * nscl, ccolor);
+                idraw->drawLine(o - y * nscl, o + y * nscl, ccolor);
+                idraw->drawLine(o, o + c.m_cti.m_normal * nscl * 3, btVector3(1, 1, 0));
+            }
+        }
 		/* Faces	*/
 		if (0 != (drawflags & fDrawFlags::Faces))
 		{
