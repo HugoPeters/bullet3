@@ -272,15 +272,15 @@ void btSoftBodyHelpers::Draw(btSoftBody* psb,
 			}
 		}
 		/* Links	*/
-		//if (0 != (drawflags & fDrawFlags::Links))
-		//{
-		//	for (i = 0; i < psb->m_links.size(); ++i)
-		//	{
-		//		const btSoftBody::Link& l = psb->m_links[i];
-		//		if (0 == (l.m_material->m_flags & btSoftBody::fMaterial::DebugDraw)) continue;
-		//		idraw->drawLine(l.m_n[0]->m_x, l.m_n[1]->m_x, lcolor);
-		//	}
-		//}
+        if (0 != (drawflags & fDrawFlags::Links))
+        {
+            for (i = 0; i < psb->m_links.size(); ++i)
+            {
+                const btSoftBody::Link& l = psb->m_links[i];
+                if (0 == (l.m_material->m_flags & btSoftBody::fMaterial::DebugDraw)) continue;
+                idraw->drawLine(l.m_n[0]->m_x, l.m_n[1]->m_x, lcolor);
+            }
+        }
 		/* Normals	*/
 		if (0 != (drawflags & fDrawFlags::Normals))
 		{
