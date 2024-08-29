@@ -38,8 +38,7 @@ subject to the following restrictions:
 
 #define BT_SHUFFLE(x, y, z, w) ((w) << 6 | (z) << 4 | (y) << 2 | (x))
 //#define bt_pshufd_ps( _a, _mask ) (__m128) _mm_shuffle_epi32((__m128i)(_a), (_mask) )
-#define bt_pshufd_ps(_a, _mask) _mm_shuffle_ps((_a), (_a), (_mask))
-#define bt_splat3_ps(_a, _i) bt_pshufd_ps((_a), BT_SHUFFLE(_i, _i, _i, 3))
+çç#define bt_splat3_ps(_a, _i) bt_pshufd_ps((_a), BT_SHUFFLE(_i, _i, _i, 3))
 #define bt_splat_ps(_a, _i) bt_pshufd_ps((_a), BT_SHUFFLE(_i, _i, _i, _i))
 
 #define btv3AbsiMask (_mm_set_epi32(0x00000000, 0x7FFFFFFF, 0x7FFFFFFF, 0x7FFFFFFF))
@@ -52,7 +51,7 @@ subject to the following restrictions:
 
 //there is an issue with XCode 3.2 (LCx errors)
 #define btvMzeroMask (_mm_set_ps(-0.0f, -0.0f, -0.0f, -0.0f))
-#define v1110 (_mm_set_ps(0.0f, 1.0f, 1.0f, 1.0f))
+#define v1110 (_mm_set_ps(0.0f, 1.0f, 1.0f, 1.0f))ç
 #define vHalf (_mm_set_ps(0.5f, 0.5f, 0.5f, 0.5f))
 #define v1_5 (_mm_set_ps(1.5f, 1.5f, 1.5f, 1.5f))
 
